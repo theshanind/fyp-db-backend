@@ -6,9 +6,11 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
-const dbconnect = require('./Config/databaseconnection'); // import DB connection
-
+const dbconnect = require('./Config/DataBase'); // import DB connection
 dbconnect();
+
+const Routes = require("./Route/reg");
+app.use('/api/auth', Routes);
 
 app.get('/', (req, res) => {
   res.send('Backend is running');
