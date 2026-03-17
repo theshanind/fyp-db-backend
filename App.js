@@ -10,7 +10,11 @@ const dbconnect = require('./Config/DataBase'); // import DB connection
 dbconnect();
 
 const Routes = require("./Route/reg");
+const LoginRoutes = require("./Route/login")
+
 app.use('/api/auth', Routes);
+app.use('/api/auth', LoginRoutes);
+
 
 app.get('/', (req, res) => {
   res.send('Backend is running');
