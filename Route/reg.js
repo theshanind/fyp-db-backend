@@ -9,6 +9,11 @@ const router = express.Router();
 router.post('/register', (req, res) => {
     const { name, email, username, password } = req.body;
 
+    // ✅ Backend validation
+    if (!name || !email || !username || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+    }
+
     bcrypt.hash(password, 10)
         .then(hash => {
             dbcollaction.create({ name, email, username, password: hash })
