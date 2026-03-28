@@ -14,11 +14,13 @@ dbconnect();
 
 const Routes = require("./Route/reg");
 const LoginRoutes = require("./Route/login")
-const HistoryRoutes = require('./Route/history');   
+const HistoryRoutes = require('./Route/history');
+const PriceRoutes   = require('./Route/price');     
 
 app.use('/api/auth', Routes);
 app.use('/api/auth', LoginRoutes);
-app.use('/api/history', HistoryRoutes);   
+app.use('/api/history', HistoryRoutes);
+app.use('/api/price',   PriceRoutes);    
 
 
 app.get('/', (req, res) => {
